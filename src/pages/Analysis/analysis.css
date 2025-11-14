@@ -1,0 +1,221 @@
+/* ROOT */
+.analysis-root {
+  position: relative;
+  min-height: 100vh;
+  color: #e6eef0;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.analysis-container {
+  max-width: 1220px;
+  margin: 28px auto 80px;
+  padding: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+/* HEADER */
+.analysis-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-direction: column;
+}
+
+.analysis-header h1 {
+  font-size: 40px;
+  color: #1fe0d6;
+  margin: 0;
+}
+
+.analysis-header .muted {
+  color: #9aa6ad;
+  margin-top: 6px;
+}
+
+/* ---------------------------------------
+   ⭐  FIXED LAYOUT (NO GRID STRETCHING)
+---------------------------------------- */
+.analysis-layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* LEFT COLUMN */
+.left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* RIGHT COLUMN */
+.right-column {
+  width: 360px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* CARD BASE */
+.card {
+  background: rgba(10, 12, 14, 0.6);
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* SIDE CARD */
+.card.side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* TITLES */
+.card-title {
+  color: #28f1e2;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+/* CHART WRAPPER */
+.chart-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+/* TEXT */
+.ai-text p {
+  color: #bcd5da;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.bullets {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0;
+}
+
+.bullets li {
+  margin-bottom: 6px;
+  color: #cfeff3;
+}
+
+/* BADGES */
+.badges-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.stat-card {
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(8,10,12,0.55));
+  border-radius: 12px;
+  padding: 16px;
+  width: 100px;
+  border: 1px solid rgba(34,211,238,0.06);
+}
+
+.stat-card.purple {
+  border: 1px solid rgba(168,85,247,0.09);
+}
+
+.stat-num {
+  font-size: 26px;
+  font-weight: 700;
+  color: #e8faff;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #9fb8bd;
+}
+
+/* SKILLS */
+.skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-chip {
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(10,50,50,0.22);
+  border: 1px solid rgba(34,211,238,0.12);
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: #bff8f3;
+}
+
+/* SPLIT CARD */
+.card.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* DOT LISTS */
+.dot-list {
+  list-style: none;
+  padding-left: 0;
+  color: #bfcbd0;
+}
+
+.dot-list li {
+  margin: 6px 0;
+  position: relative;
+  padding-left: 14px;
+}
+
+.dot-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 7px;
+  height: 7px;
+  background: #a855f7;
+  border-radius: 50%;
+}
+
+.dot-list.cyan li:before {
+  background: #00f0df;
+}
+
+/* RAW SNIPPET */
+.raw-snippet {
+  background: rgba(255,255,255,0.03);
+  padding: 8px;
+  border-radius: 6px;
+  color: #cfeff3;
+  font-family: ui-monospace, monospace;
+  font-size: 0.88rem;
+  margin-top: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1050px) {
+  .analysis-layout {
+    flex-direction: column;
+  }
+
+  .right-column {
+    width: 100%;
+  }
+}
+
+.generator-note {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 1rem;
+  color: #8d9aa5;
+  opacity: 0.8;
+}

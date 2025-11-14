@@ -1,0 +1,346 @@
+/* ---------- base / existing styles (kept) ---------- */
+
+/* Root wrapper */
+.sf-root {
+  position: relative;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  color: #e5e7eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+    "Segoe UI", sans-serif;
+}
+
+/* Hero layout */
+.sf-hero {
+  position: relative;
+  z-index: 2;
+  padding: 6rem 1.25rem 4.5rem; /* use rems for better scaling */
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  box-sizing: border-box;
+}
+
+/* Left side */
+.sf-hero-left {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0; /* allow text to wrap properly in flex */
+}
+
+/* Badge */
+.sf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: #e0faff;
+  border: 1px solid rgba(92, 246, 120, 0.25);
+  width: auto;    /* make badge auto-width (responsive) */
+  max-width: 40vw; /* prevent runaway width on narrow screens */
+  background: linear-gradient(
+    135deg,
+    rgba(10, 43, 17, 0.485),
+    rgba(10, 32, 19, 0.484)
+  );
+  box-shadow:
+    0 0 18px rgba(92, 246, 133, 0.18),
+    0 0 4px rgba(92, 246, 120, 0.25) inset;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* small dot */
+.sf-badge-dot {
+  font-size: 1.05rem;
+}
+
+/* Title */
+.sf-title {
+  font-size: clamp(2rem, 4.5vw, 3.5rem); /* fluid sizing */
+  line-height: 1.18;
+  margin: 0;
+  font-weight: 700;
+  color: #f9fafb;
+  word-break: break-word;
+}
+
+/* Gradient word */
+.sf-gradient-text {
+  display: inline-block;
+  background: linear-gradient(120deg, #22d3ee, #38bdf8, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtext */
+.sf-subtext {
+  max-width: 560px;
+  color: #cbd5f5;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CTA button */
+.sf-cta {
+  margin-top: 12px;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: #e2e8f0;
+  background-image: linear-gradient(
+    120deg,
+    #0f5a7a,
+    #0b3c66,
+    #5a2a8f
+  );
+  box-shadow: 0 20px 50px rgba(20, 40, 80, 0.6);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s ease,
+              box-shadow 0.18s ease,
+              filter 0.18s ease;
+  width: auto;            /* allow natural width */
+  max-width: 360px;      /* prevents huge button on large screens */
+  min-width: 160px;      /* touch-friendly */
+}
+
+/* Hover for desktop */
+.sf-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 24px 60px rgba(30, 60, 120, 0.85);
+}
+
+/* Right side */
+.sf-hero-right {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+
+/* Top-right chip */
+.sf-accuracy-chip {
+  position: absolute;
+  top: -36px;
+  right: 12px;
+  padding: 0.6rem 1.25rem;
+  z-index: 3;
+  border-radius: 20px;
+  color: #e0faff;
+  font-size: 0.95rem;
+  border: 1px solid rgba(92, 246, 120, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: floatDownUp 0.75s ease-in-out infinite,
+             glowPulse 1.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Card with image */
+.sf-card {
+  position: relative;
+  animation: pulseGlow 1.8s ease-in-out infinite;
+  border-radius: 20px;
+  padding: 4px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+  max-width: 610px;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Image */
+.sf-card-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+  max-height: 520px;
+}
+
+/* Bottom chip on card */
+.sf-card-chip {
+  position: absolute;
+  bottom: -20px;
+  left: 40px;
+  z-index: 4;
+}
+
+/* Shared chip styling */
+.sf-chip {
+  padding: 0.6rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  font-size: 1rem;
+  font-weight: 500;
+  animation: floatUpDown 0.75s ease-in-out infinite,
+             glowPulse 1.5s ease-in-out infinite;
+  background: linear-gradient(
+    135deg,
+    rgba(48, 25, 78, 0.485),
+    rgba(17, 10, 32, 0.484)
+  );
+  box-shadow:
+    0 0 18px rgba(139, 92, 246, 0.18),
+    0 0 4px rgba(139, 92, 246, 0.25) inset;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #c4a8ff;
+  border: 1px solid rgba(139, 92, 246, 0.18);
+}
+
+/* Generator note/footer */
+.generator-note {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #8d9aa5;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- animations (kept) ---------- */
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+@keyframes floatDownUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+  100% { transform: translateY(0); }
+}
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.18); }
+  50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.32); }
+  100% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.18); }
+}
+@keyframes pulseGlow {
+  0% {
+    box-shadow:
+      0 0 0px rgba(139, 92, 246, 0.0),
+      0 0 0px rgba(34, 211, 238, 0.0);
+  }
+  50% {
+    box-shadow:
+      0 0 14px rgba(139, 92, 246, 0.28),
+      0 0 22px rgba(34, 211, 238, 0.18);
+  }
+  100% {
+    box-shadow:
+      0 0 0px rgba(139, 92, 246, 0.0),
+      0 0 0px rgba(34, 211, 238, 0.0);
+  }
+}
+
+/* ---------- RESPONSIVE: medium / tablet ---------- */
+@media (max-width: 1024px) {
+  .sf-hero {
+    padding: 5.5rem 1rem 3.5rem;
+    gap: 1.5rem;
+  }
+
+  .sf-card-img { max-height: 460px; }
+  .sf-cta { max-width: 320px; min-width: 150px; }
+  .sf-badge { max-width: 36vw; font-size: 0.88rem; padding: 0.65rem 1rem; }
+  .sf-subtext { max-width: 480px; }
+}
+
+/* ---------- RESPONSIVE: small / phones ---------- */
+@media (max-width: 768px) {
+  .sf-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3.5rem 1rem 2.5rem;
+    gap: 1.25rem;
+  }
+
+  .sf-hero-left {
+    width: 100%;
+    order: 1;
+    padding-right: 0;
+  }
+
+  .sf-hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    order: 2;
+    margin-top: 0.75rem;
+  }
+
+  .sf-accuracy-chip {
+    position: relative; /* move to flow above card on mobile */
+    top: 0;
+    right: 0;
+    margin-bottom: 0.5rem;
+    align-self: flex-end;
+  }
+
+  .sf-card {
+    max-width: 520px;
+    width: 100%;
+    margin-top: 0.4rem;
+    padding-bottom: 36px; /* space for chip */
+  }
+
+  .sf-card-img {
+    border-radius: 14px;
+    max-height: 420px;
+  }
+
+  .sf-card-chip {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: -1.1rem;
+    display: inline-flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .sf-title {
+    font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+  }
+
+  .sf-badge { font-size: 0.85rem; padding: 0.55rem 0.9rem; }
+  .sf-subtext { font-size: 1rem; max-width: 100%; }
+  .sf-cta { width: 100%; max-width: none; padding: 0.9rem; justify-content: center; }
+}
+
+/* ---------- RESPONSIVE: very small phones ---------- */
+@media (max-width: 420px) {
+  .sf-hero { padding: 2.4rem 0.6rem 2rem; gap: 1rem; }
+  .sf-title { font-size: 1.5rem; }
+  .sf-subtext { font-size: 0.95rem; }
+  .sf-card-img { max-height: 360px; }
+  .sf-badge { max-width: 70%; }
+  .sf-generator-note { font-size: 0.9rem; }
+}
+
+/* ---------- minor utilities ---------- */
+@media (hover: hover) {
+  .sf-cta:active { transform: translateY(0); }
+}

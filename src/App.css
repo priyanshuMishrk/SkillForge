@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.sf-title,
+.sf-gradient-text
+.analysis-header {
+  font-family: "Space Grotesk", sans-serif;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +45,198 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(480px, 90vw);
+  margin: 0 auto;
+  color: #e0e7ff;
+}
+
+/* DROP ZONE */
+.drop-zone {
+  border: 2px dashed rgba(99, 102, 241, 0.5);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  background: rgba(17, 24, 39, 0.45);
+  transition: 0.25s ease;
+}
+
+.drop-zone:hover {
+  border-color: #38bdf8;
+  background: rgba(30, 41, 59, 0.6);
+  transform: scale(1.02);
+}
+
+.drop-zone.active {
+  border-color: #06b6d4;
+  background: rgba(14, 165, 233, 0.15);
+}
+
+.drop-icon {
+  color: #38bdf8;
+  margin-bottom: 12px;
+}
+
+.drop-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.drop-sub {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+/* FILE PREVIEW */
+.file-preview {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(148, 163, 184, 0.12);
+  padding: 12px 16px;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  animation: fadeIn 0.25s ease;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clear-file {
+  background: none;
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* BUTTON */
+.upload-btn {
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(59, 130, 246, 0.4);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* -------------------------------------------------- */
+/*  PERFORMANCE BOOST — reduce blur, shadow, repaint  */
+/* -------------------------------------------------- */
+
+/* reduce heavy blur globally */
+.drop-zone,
+.card,
+.file-preview {
+  backdrop-filter: blur(6px);   /* previously 12–14, expensive */
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* reduce expensive box shadow */
+.card {
+  box-shadow: 0 8px 18px rgba(0,0,0,0.45);  /* lighter & faster */
+}
+
+/* smoother hover without layout shift */
+.drop-zone:hover {
+  transform: translateY(-3px) scale(1.01);
+  will-change: transform;
+}
+
+/* make particle canvas cheaper to composite */
+.particle-canvas {
+  will-change: transform, opacity;  /* GPU layer */
+  transform: translateZ(0);          /* force GPU acceleration */
+}
+
+.card,
+.drop-zone,
+.file-preview {
+  background: rgba(10, 12, 18, 0.50);    /* deep navy glass */
+  border: 1px solid rgba(0, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.55);
+}
+
+.drop-zone {
+  background: rgba(8, 10, 18, 0.55);
+  border: 1px dashed rgba(0, 255, 255, 0.28);
+}
+
+.sideBannerbl {
+  background-color: black;
+  position: fixed;
+  width: 4vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+.homeicon img {
+  width: 3vw;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.homeicon {
+  width: 100%;
+  margin-top: 5vw;
+}
+
+@media (max-width: 1050px) {
+  .sideBannerbl {
+  background-color: black;
+  position: fixed;
+  width: 100vw;
+  height: 5vh;
+  left: 0;
+  top: 0;
+}
+
+.homeicon img {
+  height: 3vh;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.homeicon {
+  width: 100%;
+  margin-top: 1vh;
+  margin-left: 2vw;
+}
+
 }

@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+███████╗██╗  ██╗██╗██╗     ███████╗ ██████╗ ██████╗ ███████╗  
+██╔════╝██║  ██║██║██║     ██╔════╝██╔════╝██╔═══██╗██╔════╝  
+███████╗███████║██║██║     █████╗  ██║     ██║   ██║███████╗  
+╚════██║██╔══██║██║██║     ██╔══╝  ██║     ██║   ██║╚════██║  
+███████║██║  ██║██║███████╗███████║╚██████╗╚██████╔╝███████║  
+╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚══════╝
 
-## Available Scripts
+```
 
-In the project directory, you can run:
+# SkillForge
+AI-Powered Resume Analysis & Skill Mapping Platform
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Overview
+SkillForge is a full-stack project that allows users to upload resumes, processes them on a Node.js backend, and visualizes skills using dynamic React-based charts.  
+The project is built with React, Node.js/Express, and deployed using AWS.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧩 Features
+• Resume upload & processing  
+• Skill radar and line graphs  
+• Responsive UI with smooth animations  
+• Particle background effects  
+• Backend API for file handling  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Frontend: React.js, Recharts, CSS  
+Backend: Node.js, Express.js, Multer  
+Deployment: EC2, PM2, NGINX  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Folder Structure
 
-### `npm run eject`
+skillforge/  
+├── backend/  
+│   ├── server.js  
+│   ├── uploads/  
+│   └── package.json  
+│  
+├── public/  
+│   ├── index.html  
+│   ├── favicon.ico  
+│   └── manifest.json  
+│  
+├── src/  
+│   ├── Assets/  
+│   ├── components/  
+│   │   ├── UploadResume/  
+│   │   └── Particle Background/  
+│   ├── pages/  
+│   │   ├── Home/  
+│   │   └── Analysis/  
+│   ├── App.jsx  
+│   └── index.js  
+│  
+├── package.json  
+└── README.md  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚙️ Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Frontend
+npm install  
+npm start  
+(localhost:3000)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Backend
+cd backend  
+npm install  
+node server.js  
+(localhost:4000)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧪 API (Example)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+POST /upload  
+• multipart/form-data  
+• field name: resume  
 
-### Code Splitting
+Response:  
+{ "message": "File uploaded successfully", "filename": "resume.pdf" }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## ☁️ AWS Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Frontend (S3 + CloudFront)
+1. npm run build  
+2. Upload /build to S3  
+3. Enable static hosting  
+4. Create CloudFront distribution  
+5. Set index.html as default root  
 
-### Making a Progressive Web App
+### Backend (EC2 + PM2 + NGINX)
+1. Launch Ubuntu EC2  
+2. Install Node, npm, nginx, pm2  
+3. Upload backend folder  
+4. pm2 start server.js  
+5. Configure NGINX reverse proxy to localhost:5000  
+6. Restart nginx  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🖼 Screenshots 
+![Home](screenshots/home.png)  
+![Analysis](screenshots/analysis.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 👨‍💻 Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**Priyanshu Mishra**  
+Full-stack developer with 4 years of experience building and deploying scalable web and mobile applications.  
+Proficient in Node.js, React.js, AWS (EC2, S3), Socket.io, BullMQ.  
+Experienced with Google Play Console & Apple Developer Console.  
+Known for fast learning, problem-solving, and delivering end-to-end solutions.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ⭐ Contributing
+PRs are welcome.
+
+---
+
+## 📝 License
+MIT © 2025 Priyanshu Mishra

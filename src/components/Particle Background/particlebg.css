@@ -1,0 +1,20 @@
+.particle-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(0, 18, 20, 0.65), transparent 55%),
+    radial-gradient(circle at 85% 35%, rgba(11, 0, 35, 0.35), transparent 55%),
+    radial-gradient(circle at 50% 110%, rgba(3, 27, 37, 0.637), transparent 60%),
+    radial-gradient(circle at top, #000000, #020617, #040013);
+  mix-blend-mode: normal;
+}
+
+/* lower opacity on very small screens for readability & perf */
+@media (max-width: 420px) {
+  .particle-bg { opacity: 0.78; }
+}
