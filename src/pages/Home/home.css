@@ -325,7 +325,7 @@
     font-size: clamp(1.6rem, 6.5vw, 2.4rem);
   }
 
-  .sf-badge { font-size: 0.85rem; padding: 0.55rem 0.9rem; }
+  .sf-badge { font-size: 1rem; padding: 0.55rem 0.9rem; }
   .sf-subtext { font-size: 1rem; max-width: 100%; }
   .sf-cta { width: 100%; max-width: none; padding: 0.9rem; justify-content: center; }
 }
@@ -333,8 +333,8 @@
 /* ---------- RESPONSIVE: very small phones ---------- */
 @media (max-width: 420px) {
   .sf-hero { padding: 2.4rem 0.6rem 2rem; gap: 1rem; }
-  .sf-title { font-size: 1.5rem; }
-  .sf-subtext { font-size: 0.95rem; }
+  .sf-title { font-size: 2.5rem; }
+  .sf-subtext { font-size: 1.3rem; }
   .sf-card-img { max-height: 360px; }
   .sf-badge { max-width: 70%; }
   .sf-generator-note { font-size: 0.9rem; }
