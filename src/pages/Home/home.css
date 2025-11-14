@@ -344,3 +344,93 @@
 @media (hover: hover) {
   .sf-cta:active { transform: translateY(0); }
 }
+
+/* ---------- RESPONSIVE: small / phones (replace previous mobile block) ---------- */
+@media (max-width: 768px) {
+  .sf-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3.5rem 0.5rem 2.5rem;
+    gap: 1rem;
+  }
+
+  .sf-hero-left {
+    width: 100%;
+    order: 1;
+    padding-right: 0;
+  }
+
+  .sf-hero-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    order: 2;
+    margin-top: 0.5rem;
+    align-items: center;
+  }
+
+  /* Card becomes 90vw and centered */
+  .sf-card {
+    position: relative;           /* for absolute chips */
+    width: 90vw !important;       /* EXACT 90vw as requested */
+    max-width: none;              /* remove desktop max */
+    margin: 0 auto;
+    padding: 0;                   /* we want image to fully fill */
+    border-radius: 12px;
+    overflow: hidden;             /* clip rounded corners & keep chips inside */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    background: transparent;
+    /* optional: ensure card takes natural height of image */
+    display: block;
+  }
+
+  /* Image fills the card — width 90vw and fills height of its container */
+  .sf-card-img {
+    display: block;
+    width: 90vw !important;  /* exact width requested */
+    max-width: none;
+    height: 100%;
+    min-height: 380px;       /* fallback height so chips don't float over tiny images */
+    object-fit: cover;       /* cover the card area */
+    border-radius: 0;        /* card already has rounding via overflow:hidden */
+  }
+
+  /* Bottom-left chip on the card (AI-Powered) */
+  .sf-card-chip {
+    display: inline-flex;
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    z-index: 6;
+    transform: none;
+    animation: none;        /* keep stable on mobile */
+  }
+
+  /* Reuse the accuracy chip but move it onto the card bottom-right on mobile */
+  .sf-accuracy-chip {
+    position: absolute;     /* place over card */
+    bottom: 0px;
+    right: 12px;
+    margin: 0;
+    align-self: auto;
+    z-index: 6;
+    transform: none;
+    animation: none;        /* optional: disable float on mobile */
+    /* make its visual match the card chips */
+    background: linear-gradient(135deg, rgba(10, 32, 19, 0.6), rgba(17,10,32,0.6));
+    height: fit-content;
+    border-radius: 18px;
+    padding: 0.55rem 1rem;
+  }
+
+  /* adjust title/subtext/button sizing for narrow screens */
+  .sf-title { font-size: clamp(1.6rem, 6.5vw, 2.4rem); }
+  .sf-subtext { font-size: 1rem; max-width: 100%; }
+  .sf-cta {
+    width: 100%;
+    max-width: none;
+    padding: 0.9rem;
+    justify-content: center;
+  }
+}
