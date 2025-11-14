@@ -44,7 +44,7 @@ export default function UploadResume({ onResult }) {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:4000/api/analyze", {
+      const res = await fetch("/api/analyze", {
         method: "POST",
         body: form,
       });
